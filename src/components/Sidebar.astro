@@ -1,0 +1,125 @@
+---
+import { Icon } from "astro-icon";
+import LanguagePicker from "../components/LanguagePicker.astro";
+import {
+    getLangFromUrl,
+    useTranslations,
+    useTranslatedPath,
+} from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+const sidebarItems = [
+    {
+        name: t("sidebar.home"),
+        icon: "iconoir:home",
+        link: "/",
+    },
+    {
+        name: t("sidebar.projects"),
+        icon: "grommet-icons:projects",
+        link: "/projects",
+    },
+    {
+        name: "CV",
+        icon: "mdi:paper-text-outline",
+        link: "/cv",
+    },
+    {
+        name: t("sidebar.contact"),
+        icon: "ic:round-person",
+        link: "mailto:jair.aya@uniminuto.edu.co",
+    },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<button
+    data-drawer-target="logo-sidebar"
+    data-drawer-toggle="logo-sidebar"
+    aria-controls="logo-sidebar"
+    type="button"
+    class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+>
+    <span class="sr-only">Open sidebar</span>
+    <Icon name="heroicons-outline:menu-alt-2" width="32px" />
+</button>
+
+<aside
+    id="logo-sidebar"
+    class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+    aria-label="Sidebar"
+>
+    <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+        <figure class="flex justify-center">
+            <img
+                src="https://media.licdn.com/dms/image/C4D03AQGO_-IbK-xmCg/profile-displayphoto-shrink_200_200/0/1643072165798?e=1701302400&v=beta&t=RSUJaLaBUHRCdT8VDkBztYZ3_nJNqVMHmU2QV7lxJ8o"
+                class="m-3 h-36 w-3h-36 rounded-full"
+                alt="Profile picture"
+            />
+        </figure>
+
+        <ul class="space-y-2 font-medium">
+            {
+                sidebarItems.map((item) => (
+                    <li>
+                        <a
+                            href={
+                                item.name === t("sidebar.contact")
+                                    ? item.link
+                                    : translatePath(item.link, lang)
+                            }
+                            class:list={[
+                                {
+                                    "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group": true,
+                                    "bg-gray-100 dark:bg-gray-700":
+                                        currentPath ===
+                                        translatePath(item.link, lang),
+                                },
+                            ]}
+                        >
+                            <Icon name={item.icon} width="32px" />
+                            <span class="ml-3">{item.name}</span>
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+
+    <div class="px-4 pb-5 pt-1 flex self-center justify-center sticky bottom-10">
+        <LanguagePicker />
+    </div>
+
+    <div class="px-4 pb-5 pt-1 flex self-center justify-center sticky bottom-0">
+        <a
+            href="https://github.com/jairayafranco"
+            target="_blank"
+            class="mx-3"
+            aria-label="Github"
+            title="Github"
+        >
+            <Icon name="akar-icons:github-fill" width="26px" />
+        </a>
+        <a
+            href="https://www.linkedin.com/in/jairaya/"
+            target="_blank"
+            class="mx-3"
+            aria-label="Linkedin"
+            title="Linkedin"
+        >
+            <Icon name="akar-icons:linkedin-fill" width="26px" />
+        </a>
+    </div>
+</aside>
+
+<div class="p-4 sm:ml-64" transition:animate="fade">
+    <div class="md:flex md:justify-center">
+        <main class="p-6 pt-10 lg:pt-0 lg:max-w-[900px] max-w-[100vw]">
+            <slot />
+        </main>
+    </div>
+</div>
