@@ -1,138 +1,83 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Icon from "astro-icon";
+import { CV } from "../../data/cv";
+import { calculateTotalTime } from "../../utils/calculateTotalTime";
+import { getLangFromUrl } from "../../i18n/utils";
+
+const { experience, education } = CV.es;
+const { skills } = CV.en;
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <Layout>
     <div class="pb-12 mt-5">
         <div class="mb-5">
-            <div class="text-3xl w-full font-bold">Profile</div>
+            <div class="text-3xl w-full font-bold">Perfil</div>
         </div>
 
-        <div class="mb-10 text-justify">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+        <div class="mb-10 text-lg">
+            Soy un desarrollador de software con cerca de 2 años de experiencia
+            apasionado por el aprendizaje y la resolución de problemas. Me
+            especializo en la creación de soluciones innovadoras y eficientes
+            para mejorar la experiencia del usuario. Me encanta trabajar en
+            proyectos desafiantes y dominar diferentes temas. Siempre busco
+            aprender algo nuevo y mantenerme actualizado en las últimas
+            tecnologías y tendencias en el mundo del desarrollo de software.
         </div>
 
         <div class="mb-5">
-            <div class="text-3xl w-full font-bold">Education</div>
+            <div class="text-3xl w-full font-bold">Experiencia</div>
         </div>
 
         <div class="time-line-container grid gap-4 mb-10">
             <ol
                 class="relative text-gray-500 border-l border-gray-200 dark:border-gray-700 dark:text-gray-400"
             >
-                <li class="mb-10 ml-6">
-                    <span
-                        class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-purple-900"
-                    >
-                    </span>
-                    <h3 class="font-medium leading-tight">Title Name</h3>
-                    <p class="font-light text-sm">
-                        [start year] to [end year] at [Study Center Name],
-                        [City], [Country]
-                    </p>
-                </li>
-                <li class="mb-10 ml-6">
-                    <span
-                        class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-purple-900"
-                    >
-                    </span>
-                    <h3 class="font-medium leading-tight">Title Name</h3>
-                    <p class="font-light text-sm">
-                        [start year] to [end year] at [Study Center Name],
-                        [City], [Country]
-                    </p>
-                </li>
+                {
+                    experience.map((exp) => (
+                        <li class="mb-10 ml-6">
+                            <span class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-purple-900" />
+                            <h3 class="font-medium leading-tight text-lg">
+                                {exp.name}
+                            </h3>
+                            <p class="font-light text-sm">
+                                {exp.from} a {exp.to} en {exp.where} -{" "}
+                                {calculateTotalTime(exp.from, exp.to, lang)}
+                            </p>
+                            <p class="my-2 text-justify">{exp.description}</p>
+                        </li>
+                    ))
+                }
             </ol>
         </div>
 
         <div class="mb-5">
-            <div class="text-3xl w-full font-bold">Experience</div>
+            <div class="text-3xl w-full font-bold">Educación</div>
         </div>
 
         <div class="time-line-container grid gap-4 mb-10">
             <ol
                 class="relative text-gray-500 border-l border-gray-200 dark:border-gray-700 dark:text-gray-400"
             >
-                <li class="mb-10 ml-6">
-                    <span
-                        class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-purple-900"
-                    >
-                    </span>
-                    <h3 class="font-medium leading-tight">
-                        Job Title at Project or Company Name
-                    </h3>
-                    <p class="font-light text-sm">
-                        [start year] to [end year] at [Study Center Name],
-                        [City], [Country]
-                    </p>
-                    <p class="my-2 text-justify">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident.
-                    </p>
-                </li>
-                <li class="mb-10 ml-6">
-                    <span
-                        class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-purple-900"
-                    >
-                    </span>
-                    <h3 class="font-medium leading-tight">
-                        Job Title at Project or Company Name
-                    </h3>
-                    <p class="font-light text-sm">
-                        [start year] to [end year] at [Study Center Name],
-                        [City], [Country]
-                    </p>
-                    <p class="my-2 text-justify">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident.
-                    </p>
-                </li>
-                <li class="mb-10 ml-6">
-                    <span
-                        class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-purple-900"
-                    >
-                    </span>
-                    <h3 class="font-medium leading-tight">
-                        Job Title at Project or Company Name
-                    </h3>
-                    <p class="font-light text-sm">
-                        [start year] to [end year] at [Study Center Name],
-                        [City], [Country]
-                    </p>
-                    <p class="my-2 text-justify">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident.
-                    </p>
-                </li>
+                {
+                    education.map((ed) => (
+                        <li class="mb-10 ml-6">
+                            <span class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-purple-900" />
+                            <h3 class="font-medium leading-tight text-lg">
+                                {ed.name}
+                            </h3>
+                            <p class="font-light text-sm">
+                                {ed.from} a {ed.to} en {ed.where}
+                            </p>
+                        </li>
+                    ))
+                }
             </ol>
         </div>
 
         <div class="mb-5">
-            <div class="text-3xl w-full font-bold">Certifications</div>
+            <div class="text-3xl w-full font-bold">Certificaciones</div>
         </div>
 
         <ul class="list-disc mx-6 mb-10 grid gap-2">
@@ -145,25 +90,22 @@ import Layout from "../../layouts/Layout.astro";
         </ul>
 
         <div class="mb-5">
-            <div class="text-3xl w-full font-bold">Skills</div>
+            <div class="text-3xl w-full font-bold">Habilidades</div>
         </div>
 
         <ul class="list-disc md:columns-5 columns-2 mx-6">
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
+            {
+                skills.map((skill) => (
+                    <li class="flex items-center gap-1">
+                        <Icon
+                            name={skill.icon}
+                            class="inline-block w-6 h-6 mr-2"
+                        />
+                        <p>{skill.name}</p>
+                    </li>
+                ))
+            }
         </ul>
     </div>
 </Layout>
+../../data/cv

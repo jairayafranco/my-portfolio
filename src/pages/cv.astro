@@ -1,5 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { calculateTotalTime } from "../utils/calculateTotalTime";
+import Icon from "astro-icon";
+import { CV } from "../data/cv";
+import { getLangFromUrl } from "../i18n/utils";
+
+const { experience, education, skills } = CV.en;
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <Layout>
@@ -8,47 +15,14 @@ import Layout from "../layouts/Layout.astro";
             <div class="text-3xl w-full font-bold">Profile</div>
         </div>
 
-        <div class="mb-10 text-justify">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-        </div>
-
-        <div class="mb-5">
-            <div class="text-3xl w-full font-bold">Education</div>
-        </div>
-
-        <div class="time-line-container grid gap-4 mb-10">
-            <ol
-                class="relative text-gray-500 border-l border-gray-200 dark:border-gray-700 dark:text-gray-400"
-            >
-                <li class="mb-10 ml-6">
-                    <span
-                        class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-purple-900"
-                    >
-                    </span>
-                    <h3 class="font-medium leading-tight">Title Name</h3>
-                    <p class="font-light text-sm">
-                        [start year] to [end year] at [Study Center Name],
-                        [City], [Country]
-                    </p>
-                </li>
-                <li class="mb-10 ml-6">
-                    <span
-                        class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-purple-900"
-                    >
-                    </span>
-                    <h3 class="font-medium leading-tight">Title Name</h3>
-                    <p class="font-light text-sm">
-                        [start year] to [end year] at [Study Center Name],
-                        [City], [Country]
-                    </p>
-                </li>
-            </ol>
+        <div class="mb-10 text-lg">
+            I am a software developer with about 2 years of experience
+            passionate about learning and problem-solving. I specialize in
+            creating innovative and efficient solutions to enhance the user
+            experience. I love working on challenging projects and mastering
+            different subjects. I always seek to learn something new and stay
+            updated on the latest technologies and trends in the world of
+            software development.
         </div>
 
         <div class="mb-5">
@@ -59,75 +33,45 @@ import Layout from "../layouts/Layout.astro";
             <ol
                 class="relative text-gray-500 border-l border-gray-200 dark:border-gray-700 dark:text-gray-400"
             >
-                <li class="mb-10 ml-6">
-                    <span
-                        class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-purple-900"
-                    >
-                    </span>
-                    <h3 class="font-medium leading-tight">
-                        Job Title at Project or Company Name
-                    </h3>
-                    <p class="font-light text-sm">
-                        [start year] to [end year] at [Study Center Name],
-                        [City], [Country]
-                    </p>
-                    <p class="my-2 text-justify">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident.
-                    </p>
-                </li>
-                <li class="mb-10 ml-6">
-                    <span
-                        class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-purple-900"
-                    >
-                    </span>
-                    <h3 class="font-medium leading-tight">
-                        Job Title at Project or Company Name
-                    </h3>
-                    <p class="font-light text-sm">
-                        [start year] to [end year] at [Study Center Name],
-                        [City], [Country]
-                    </p>
-                    <p class="my-2 text-justify">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident.
-                    </p>
-                </li>
-                <li class="mb-10 ml-6">
-                    <span
-                        class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-purple-900"
-                    >
-                    </span>
-                    <h3 class="font-medium leading-tight">
-                        Job Title at Project or Company Name
-                    </h3>
-                    <p class="font-light text-sm">
-                        [start year] to [end year] at [Study Center Name],
-                        [City], [Country]
-                    </p>
-                    <p class="my-2 text-justify">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident.
-                    </p>
-                </li>
+                {
+                    experience.map((exp) => (
+                        <li class="mb-10 ml-6">
+                            <span class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-purple-900" />
+                            <h3 class="font-medium leading-tight text-lg">
+                                {exp.name}
+                            </h3>
+                            <p class="font-light text-sm">
+                                {exp.from} to {exp.to} at {exp.where} -
+                                {calculateTotalTime(exp.from, exp.to, lang)}
+                            </p>
+                            <p class="my-2 text-justify">{exp.description}</p>
+                        </li>
+                    ))
+                }
+            </ol>
+        </div>
+
+        <div class="mb-5">
+            <div class="text-3xl w-full font-bold">Education</div>
+        </div>
+
+        <div class="time-line-container grid gap-4 mb-10">
+            <ol
+                class="relative text-gray-500 border-l border-gray-200 dark:border-gray-700 dark:text-gray-400"
+            >
+                {
+                    education.map((ed) => (
+                        <li class="mb-10 ml-6">
+                            <span class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-purple-900" />
+                            <h3 class="font-medium leading-tight text-lg">
+                                {ed.name}
+                            </h3>
+                            <p class="font-light text-sm">
+                                {ed.from} to {ed.to} at {ed.where}
+                            </p>
+                        </li>
+                    ))
+                }
             </ol>
         </div>
 
@@ -149,21 +93,18 @@ import Layout from "../layouts/Layout.astro";
         </div>
 
         <ul class="list-disc md:columns-5 columns-2 mx-6">
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
-            <li>Skill Name</li>
+            {
+                skills.map((skill) => (
+                    <li class="flex items-center gap-1">
+                        <Icon
+                            name={skill.icon}
+                            class="inline-block w-6 h-6 mr-2"
+                        />
+                        <p>{skill.name}</p>
+                    </li>
+                ))
+            }
         </ul>
     </div>
 </Layout>
+../data/cv
