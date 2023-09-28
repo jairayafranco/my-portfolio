@@ -3,7 +3,7 @@ import { languages, languagesFlags } from "../i18n/ui";
 import Icon from "astro-icon";
 ---
 
-<div class="flex gap-3 justify-center flex-wrap">
+<div class="flex gap-3 justify-center flex-wrap" transition:persist>
     {
         Object.entries(languages).map(([lang, label]) => (
             <>

@@ -6,6 +6,8 @@ import {
     useTranslations,
     useTranslatedPath,
 } from "../i18n/utils";
+import ProfilePic from "../assets/profile_pic.jpeg";
+import { Image } from "astro:assets";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -55,9 +57,9 @@ const currentPath = Astro.url.pathname;
 >
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
         <figure class="flex justify-center">
-            <img
-                src="https://media.licdn.com/dms/image/C4D03AQGO_-IbK-xmCg/profile-displayphoto-shrink_200_200/0/1643072165798?e=1701302400&v=beta&t=RSUJaLaBUHRCdT8VDkBztYZ3_nJNqVMHmU2QV7lxJ8o"
-                class="m-3 h-36 w-3h-36 rounded-full"
+            <Image
+                src={ProfilePic}
+                class="m-3 h-36 w-36 rounded-full pointer-events-none"
                 alt="Profile picture"
             />
         </figure>
@@ -90,7 +92,9 @@ const currentPath = Astro.url.pathname;
         </ul>
     </div>
 
-    <div class="px-4 pb-5 pt-1 flex self-center justify-center sticky bottom-10">
+    <div
+        class="px-4 pb-5 pt-1 flex self-center justify-center sticky bottom-10"
+    >
         <LanguagePicker />
     </div>
 
