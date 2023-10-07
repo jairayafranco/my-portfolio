@@ -5,7 +5,7 @@ import { CV } from "../../data/cv";
 import { calculateTotalTime } from "../../utils/calculateTotalTime";
 import { getLangFromUrl } from "../../i18n/utils";
 
-const { experience, education } = CV.es;
+const { experience, education, certificaciones } = CV.es;
 const { skills } = CV.en;
 const lang = getLangFromUrl(Astro.url);
 ---
@@ -81,12 +81,7 @@ const lang = getLangFromUrl(Astro.url);
         </div>
 
         <ul class="list-disc mx-6 mb-10 grid gap-2">
-            <li>
-                <a href="#" target="_blank"> Certification Name (with link)</a>
-            </li>
-            <li>
-                <a href="#" target="_blank"> Certification Name (with link)</a>
-            </li>
+            {certificaciones.map((cert) => <li>{cert}</li>)}
         </ul>
 
         <div class="mb-5">
@@ -108,4 +103,4 @@ const lang = getLangFromUrl(Astro.url);
         </ul>
     </div>
 </Layout>
-../../data/cv
+ ../../data/cv

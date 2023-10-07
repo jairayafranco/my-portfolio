@@ -5,7 +5,7 @@ import Icon from "astro-icon";
 import { CV } from "../data/cv";
 import { getLangFromUrl } from "../i18n/utils";
 
-const { experience, education, skills } = CV.en;
+const { experience, education, skills, certifications } = CV.en;
 const lang = getLangFromUrl(Astro.url);
 ---
 
@@ -44,7 +44,7 @@ const lang = getLangFromUrl(Astro.url);
                                 {exp.from} to {exp.to} at {exp.where} -
                                 {calculateTotalTime(exp.from, exp.to, lang)}
                             </p>
-                            <p class="my-2 text-justify">{exp.description}</p>
+                            <p class="my-2 text-left">{exp.description}</p>
                         </li>
                     ))
                 }
@@ -79,13 +79,8 @@ const lang = getLangFromUrl(Astro.url);
             <div class="text-3xl w-full font-bold">Certifications</div>
         </div>
 
-        <ul class="list-disc mx-6 mb-10 grid gap-2">
-            <li>
-                <a href="#" target="_blank"> Certification Name (with link)</a>
-            </li>
-            <li>
-                <a href="#" target="_blank"> Certification Name (with link)</a>
-            </li>
+        <ul class="list-disc mx-6 mb-10 grid gap-2 md:grid-cols-2">
+            {certifications.map((cert) => <li>{cert}</li>)}
         </ul>
 
         <div class="mb-5">
@@ -107,4 +102,4 @@ const lang = getLangFromUrl(Astro.url);
         </ul>
     </div>
 </Layout>
-../data/cv
+ ../data/cv

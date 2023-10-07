@@ -47,11 +47,27 @@ export const CV = {
                 description: "",
             },
         ],
-        certifications: [],
+        certifications: [
+            "AWS Cloud Fundamentals for Professionals",
+            "Fullstack to Backend Learning Path",
+            "Expert Web Developer Path",
+            "EF SET English Certificate™ C2 75/100 Proficient",
+            "ChatGPT Prompt Engineering for Developers",
+            "Professional Web Developer Path",
+            "Beginner Web Developer Path",
+            "Bootcamp Fullstack - Midudev",
+            "JavaScript Full- Course from Beginner to Professional",
+            "Computer Architecture",
+            "The Hour of Code",
+        ],
         skills: [
             {
                 name: "JavaScript",
                 icon: "vscode-icons:file-type-js-official",
+            },
+            {
+                name: "TypeScript",
+                icon: "vscode-icons:file-type-typescript-official",
             },
             {
                 name: "React",
@@ -60,6 +76,10 @@ export const CV = {
             {
                 name: "NextJS",
                 icon: "vscode-icons:file-type-next",
+            },
+            {
+                name: "VueJS",
+                icon: "vscode-icons:file-type-vue",
             },
             {
                 name: "NodeJS",
@@ -72,6 +92,14 @@ export const CV = {
             {
                 name: "MySQL",
                 icon: "vscode-icons:file-type-mysql",
+            },
+            {
+                name: "MongoDB",
+                icon: "vscode-icons:file-type-mongo",
+            },
+            {
+                name: "API REST",
+                icon: "vscode-icons:file-type-rest",
             },
             {
                 name: "HTML",
@@ -163,6 +191,18 @@ export const CV = {
                 description: "",
             },
         ],
-        certificaciones: []
+        certificaciones: [
+            "Fundamentos de la nube de AWS para profesionales",
+            "Fullstack to Backend Learning Path",
+            "Expert Web Developer Path",
+            "EF SET English Certificate™ C2 75/100 Proficient",
+            "ChatGPT Prompt Engineering for Developers",
+            "Professional Web Developer Path",
+            "Beginner Web Developer Path",
+            "Bootcamp Fullstack - Midudev",
+            "JavaScript Full- Curso desde Principiante hasta Profesional",
+            "Arquitectura de Computadores",
+            "The Hour of Code",
+        ]
     }
 }
