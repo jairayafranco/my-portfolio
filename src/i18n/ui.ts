@@ -15,12 +15,10 @@ export const ui = {
     en: {
         'sidebar.home': 'Home',
         'sidebar.projects': 'Projects',
-        'sidebar.contact': 'Contact',
     },
     es: {
         'sidebar.home': 'Inicio',
         'sidebar.projects': 'Proyectos',
-        'sidebar.contact': 'Contacto',
     },
 } as const;
 

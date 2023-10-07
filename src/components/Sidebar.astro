@@ -29,11 +29,6 @@ const sidebarItems = [
         icon: "mdi:paper-text-outline",
         link: "/cv",
     },
-    {
-        name: t("sidebar.contact"),
-        icon: "ic:round-person",
-        link: "mailto:jair.aya@uniminuto.edu.co",
-    },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -69,11 +64,7 @@ const currentPath = Astro.url.pathname;
                 sidebarItems.map((item) => (
                     <li>
                         <a
-                            href={
-                                item.name === t("sidebar.contact")
-                                    ? item.link
-                                    : translatePath(item.link, lang)
-                            }
+                            href={translatePath(item.link, lang)}
                             class:list={[
                                 {
                                     "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group": true,
@@ -116,6 +107,24 @@ const currentPath = Astro.url.pathname;
             title="Linkedin"
         >
             <Icon name="akar-icons:linkedin-fill" width="26px" />
+        </a>
+        <a
+            href="mailto:jair.aya@uniminuto.edu.co"
+            target="_blank"
+            class="mx-3"
+            aria-label="Mail"
+            title="Mail"
+        >
+            <Icon name="ion:mail" width="26px" />
+        </a>
+        <a
+            href="https://wa.me/573219535640"
+            target="_blank"
+            class="mx-3"
+            aria-label="Whatsapp"
+            title="Whatsapp"
+        >
+            <Icon name="akar-icons:whatsapp-fill" width="26px" />
         </a>
     </div>
 </aside>
