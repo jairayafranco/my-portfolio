@@ -1,5 +1,8 @@
 ---
+import { getLangFromUrl } from "../i18n/utils";
+
 const { project } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <div
@@ -12,7 +15,7 @@ const { project } = Astro.props;
                 class="max-w-full md:max-w-[13rem] rounded-lg"
                 width="750"
                 height="422"
-                src={`images/projects/${project.image}`}
+                src={`../images/projects/${project.image}`}
                 loading="lazy"
                 decoding="async"
             />
@@ -21,7 +24,7 @@ const { project } = Astro.props;
                     {project.name}
                 </h1>
                 <p class="py-1 text-1xl">
-                    {project.description}
+                    {project.description[lang]}
                 </p>
             </div>
         </div>

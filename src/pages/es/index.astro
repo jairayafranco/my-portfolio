@@ -1,5 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { projects } from "../../data/projects";
+import ProjectCard from "../../components/ProjectCard.astro";
 ---
 
 <Layout>
@@ -9,11 +11,27 @@ import Layout from "../../layouts/Layout.astro";
         <div class="text-3xl py-3 font-bold">Desarrollador de Software</div>
         <div class="py-2">
             <text class="text-lg">
-                This is <b>Astrofy</b> a free and open-source template for your
-                Personal Portfolio Website built with Astro and TailwindCSS.
-                Create in minutes a website with Blog, CV, Project Section,
-                Store and RSS Feed. I hope you find it useful!
+                Soy un desarrollador de software con cerca de 2 años de
+                experiencia apasionado por el aprendizaje y la resolución de
+                problemas. Me especializo en la creación de soluciones
+                innovadoras y eficientes para mejorar la experiencia del
+                usuario. Me encanta trabajar en proyectos desafiantes y dominar
+                diferentes temas. Siempre busco aprender algo nuevo y mantenerme
+                actualizado en las últimas tecnologías y tendencias en el mundo
+                del desarrollo de software.
             </text>
+        </div>
+
+        <div class="text-3xl w-full font-bold my-5">Recent Projects</div>
+
+        <div class="flex flex-col">
+            {
+                projects
+                    .slice(0, 5)
+                    .map((project, i) => (
+                        <ProjectCard project={project} key={i} />
+                    ))
+            }
         </div>
     </div>
 </Layout>
