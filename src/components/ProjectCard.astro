@@ -1,0 +1,29 @@
+---
+const { project } = Astro.props;
+---
+
+<div
+    class="rounded-lg hover:shadow-xl transition ease-in-out hover:scale-[102%]"
+>
+    <a href={project.github} target="_blank">
+        <div class="flex gap-2 items-center m-2 p-2 flex-col md:flex-row">
+            <img
+                alt={project.name}
+                class="max-w-full md:max-w-[13rem] rounded-lg"
+                width="750"
+                height="422"
+                src={`images/projects/${project.image}`}
+                loading="lazy"
+                decoding="async"
+            />
+            <div class="grow w-full">
+                <h1 class="text-xl font-bold">
+                    {project.name}
+                </h1>
+                <p class="py-1 text-1xl">
+                    {project.description}
+                </p>
+            </div>
+        </div>
+    </a>
+</div>
