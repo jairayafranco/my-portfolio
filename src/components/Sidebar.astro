@@ -37,31 +37,37 @@ const sidebarItems = [
 ---
 
 <!-- mobile nav view -->
-<ul class="flex gap-4 flex-wrap items-center pt-4 ml-8 lg:hidden">
+<nav class="flex gap-3 items-center pt-4 ml-8 lg:hidden">
     <Image
         src={ProfilePic}
         class="h-12 w-12 rounded-full pointer-events-none"
         alt="Profile picture"
     />
-    {
-        sidebarItems.map((item, idx) => (
-            <li>
-                <a
-                    href={translatePath(item.link, lang)}
-                    class:list={[
-                        {
-                            "font-medium dark:text-white": true,
-                            underline:
-                                currentPath === translatePath(item.link, lang),
-                        },
-                    ]}
-                >
-                    {item.name}
-                </a>
-            </li>
-        ))
-    }
-</ul>
+    <ul class="flex gap-4">
+        {
+            sidebarItems.map((item) => (
+                <li>
+                    <a
+                        href={translatePath(item.link, lang)}
+                        class:list={[
+                            {
+                                "font-medium dark:text-white": true,
+                                underline:
+                                    currentPath ===
+                                    translatePath(item.link, lang),
+                            },
+                        ]}
+                    >
+                        {item.name}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+    <div class="relative left-16">
+        <LanguagePicker />
+    </div>
+</nav>
 <!--  -->
 
 <aside
@@ -128,8 +134,7 @@ const sidebarItems = [
         >
             <slot />
         </main>
-        <div class="lg:hidden">
-            <LanguagePicker />
+        <div id="social" class="lg:hidden">
             <br />
             <Social />
         </div>
