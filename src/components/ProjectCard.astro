@@ -15,7 +15,9 @@ const lang = getLangFromUrl(Astro.url);
                 class="max-w-full md:max-w-[13rem] rounded-lg"
                 width="750"
                 height="422"
-                src={`../images/projects/${project.image}`}
+                src={`${lang === "es" ? "../../" : "../"}images/projects/${
+                    project.image
+                }`}
                 loading="lazy"
                 decoding="async"
             />
