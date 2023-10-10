@@ -13,9 +13,7 @@ import Social from "./Social.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
-
 const currentPath = Astro.url.pathname;
-const pathname = Astro.url.pathname.split("/").at(-1);
 
 const sidebarItems = [
     {
@@ -26,12 +24,12 @@ const sidebarItems = [
     {
         name: t("sidebar.projects"),
         icon: "grommet-icons:projects",
-        link: "/projects",
+        link: "/projects/",
     },
     {
         name: "CV",
         icon: "mdi:paper-text-outline",
-        link: "/cv",
+        link: "/cv/",
     },
 ];
 ---
@@ -126,9 +124,9 @@ const sidebarItems = [
                 {
                     "lg:pt-0 px-6": true,
                     "lg:max-w-[900px] max-w-[100vw]": ![
-                        "proyectos",
-                        "projects",
-                    ].includes(pathname),
+                        "/es/proyectos/",
+                        "/projects/",
+                    ].includes(currentPath),
                 },
             ]}
         >
