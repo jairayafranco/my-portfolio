@@ -6,7 +6,8 @@ export const projects = [
             es: "Una aplicación de notas simple creada con React y TypeScript."
         },
         image: "notes-app.png",
-        github: "https://github.com/jairayafranco/Notes-App-Front"
+        github: "https://github.com/jairayafranco/Notes-App-Front",
+        website: "https://notes-app-front-j.vercel.app/"
     },
     {
         name: "Photo Album",
@@ -24,7 +25,8 @@ export const projects = [
             es: "Una aplicación de chat basada en inteligencia artificial que utiliza Next.js y Cohere para proporcionar una experiencia de conversación inteligente y personalizada."
         },
         image: "cohere-ai-chat.png",
-        github: "https://github.com/jairayafranco/Cohere-AIchat"
+        github: "https://github.com/jairayafranco/Cohere-AIchat",
+        website: "https://cohere-ai-chat.vercel.app/"
     },
     {
         name: "Games Store",
@@ -33,7 +35,8 @@ export const projects = [
             es: "Una tienda de juegos simple creada con Astro y usando view transitions para crear una experiencia de usuario fluida."
         },
         image: "games-store.png",
-        github: "https://github.com/jairayafranco/GamesStore-Viewtransition"
+        github: "https://github.com/jairayafranco/GamesStore-Viewtransition",
+        website: "https://gamestorej.netlify.app/"
     },
     {
         name: "BooksHub",
@@ -42,13 +45,14 @@ export const projects = [
             es: "Una tienda de libros simple donde los usuarios pueden encontrar una gran variedad de libros y realizar un seguimiento de su biblioteca personal. Creado con React, TypeScript, Zustand y Tailwind CSS."
         },
         image: "bookshub.png",
-        github: "https://github.com/jairayafranco/BookHub"
+        github: "https://github.com/jairayafranco/BookHub",
+        website: "https://bookhubtest.netlify.app/"
     },
     {
         name: "MedicApp",
         description: {
-            en: "This is an app made to present as a final degree project that allows doctors to find and book appointments of their patients. Built with React, TypeScript, Zustand and MUI.",
-            es: "Esta es una aplicación hecha para presentar como proyecto final de grado que permite a los médicos encontrar y reservar citas de sus pacientes. Creado con React, TypeScript, Zustand y MUI."
+            en: "This is an app made to present as a final degree project that allows doctors to find and book appointments of their patients. Built with React, NextJS, Zustand and MUI.",
+            es: "Esta es una aplicación hecha para presentar como proyecto final de grado que permite a los médicos encontrar y reservar citas de sus pacientes. Creado con React, NextJS, Zustand y MUI."
         },
         image: "medicapp.png",
         github: "https://github.com/jairayafranco/medic-app-next"
@@ -69,7 +73,8 @@ export const projects = [
             es: "Anime Tracker es una aplicación de React que permite a los usuarios buscar títulos de anime y guardarlos en el almacenamiento local para futuras referencias. Creado con React, Zustand y Mantine."
         },
         image: "anime-tracker.png",
-        github: "https://github.com/jairayafranco/anime-tracker"
+        github: "https://github.com/jairayafranco/anime-tracker",
+        website: "https://anime-tracker-j.vercel.app/"
     },
     {
         name: "Debts App",
@@ -87,6 +92,7 @@ export const projects = [
             es: "Una aplicación de preguntas y respuestas simple creada con React y Tailwind CSS."
         },
         image: "japanese-quiz.png",
-        github: "https://github.com/jairayafranco/japanese-quiz"
+        github: "https://github.com/jairayafranco/japanese-quiz",
+        website: "https://japanese-quiz-jp.vercel.app/"
     }
 ]
