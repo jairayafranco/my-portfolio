@@ -87,7 +87,9 @@ const lang = getLangFromUrl(Astro.url);
             <div class="text-3xl w-full font-bold">Skills</div>
         </div>
 
-        <ul class="list-disc md:columns-5 columns-2 mx-6">
+        <ul
+            class="list-disc grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-5"
+        >
             {
                 skills.map((skill) => (
                     <li class="flex items-center gap-1">

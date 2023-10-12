@@ -35,7 +35,9 @@ const sidebarItems = [
 ---
 
 <!-- mobile nav view -->
-<nav class="flex gap-3 items-center pt-4 ml-8 lg:hidden">
+<nav
+    class="flex gap-3 items-center py-2.5 ml-8 sticky top-0 z-50 bg-[#1d232a] lg:hidden"
+>
     <Image
         src={ProfilePic}
         class="h-12 w-12 rounded-full pointer-events-none"
@@ -130,7 +132,7 @@ const sidebarItems = [
         >
             <slot />
         </main>
-        <div id="social" class="lg:hidden">
+        <div id="social" class="md:hidden">
             <br />
             <Social />
         </div>
