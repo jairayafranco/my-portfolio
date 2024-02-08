@@ -1,5 +1,14 @@
 export const projects = [
     {
+        name: "WebContainers App",
+        description: {
+            en: "This application is an interactive IDE built with React, WebContainers API, React Resizable Layout, Monaco Editor, and Xterm",
+            es: "Esta aplicación es un entorno de desarrollo integrado interactivo construido con React, la API WebContainers, React Resizable Layout, Monaco Editor y Xterm."
+        },
+        image: "webcontainers-app.png",
+        github: "https://github.com/jairayafranco/webcontainer-app"
+    },
+    {
         name: "Notes App",
         description: {
             en: "A simple notes app built with React and TypeScript.",
