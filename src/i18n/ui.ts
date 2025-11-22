@@ -17,10 +17,16 @@ export const ui = {
   en: {
     'sidebar.home': 'Home',
     'sidebar.projects': 'Projects',
+    'home.greeting': 'Hey there',
+    'home.intro': "I'm",
+    'home.recentProjects': 'Recent Projects',
   },
   es: {
     'sidebar.home': 'Inicio',
     'sidebar.projects': 'Proyectos',
+    'home.greeting': 'Hola',
+    'home.intro': 'Soy',
+    'home.recentProjects': 'Proyectos Recientes',
   },
 } as const;
 

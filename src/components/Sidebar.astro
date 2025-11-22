@@ -34,7 +34,7 @@ const sidebarItems: SidebarItem[] = [
     },
 ];
 
-const isProjectsPage = ["/es/proyectos/", "/projects/"].includes(currentPath);
+const isProjectsPage = currentPath.includes("/proyectos") || currentPath.includes("/projects");
 ---
 
 <!-- Mobile navigation -->
