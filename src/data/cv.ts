@@ -1,4 +1,14 @@
-export const CV = {
+import type { Experience, Education, Skill } from '../types';
+
+interface CVData {
+    education: Education[];
+    experience: Experience[];
+    certifications?: string[];
+    certificaciones?: string[];
+    skills?: Skill[];
+}
+
+export const CV: Record<'en' | 'es', CVData> = {
     en: {
         education: [
             {
