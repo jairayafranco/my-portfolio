@@ -1,44 +1,68 @@
-# Astro Starter Kit: Basics
+# Portfolio - Jair Aya
 
-```sh
-npm create astro@latest -- --template basics
-```
+Personal portfolio website built with Astro, TypeScript, and Tailwind CSS. Features a clean, responsive design with internationalization support (English/Spanish).
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## ✨ Features
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+- 🌐 Internationalization (i18n) - English and Spanish
+- 🎨 Modern, responsive design with Tailwind CSS
+- ⚡ Fast performance with Astro
+- 🔍 SEO optimized
+- ♿ Accessibility compliant
+- 🎯 Type-safe with TypeScript
+- 🎭 Smooth page transitions
+- 📱 Mobile-first approach
 
 ## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
 
 ```text
 /
 ├── public/
-│   └── favicon.svg
+│   ├── favicon.svg
+│   └── images/
+│       └── projects/
 ├── src/
+│   ├── assets/
 │   ├── components/
-│   │   └── Card.astro
+│   │   ├── Card.astro
+│   │   ├── LanguagePicker.astro
+│   │   ├── ProjectCard.astro
+│   │   ├── Sidebar.astro
+│   │   └── Social.astro
+│   ├── constants/
+│   │   ├── profile.ts
+│   │   └── social.ts
+│   ├── data/
+│   │   ├── cv.ts
+│   │   └── projects.ts
+│   ├── i18n/
+│   │   ├── ui.ts
+│   │   └── utils.ts
 │   ├── layouts/
 │   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
+│   ├── pages/
+│   │   ├── index.astro
+│   │   ├── projects.astro
+│   │   ├── cv.astro
+│   │   └── es/
+│   ├── types/
+│   │   └── index.ts
+│   └── utils/
+│       └── calculateTotalTime.ts
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🛠️ Tech Stack
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
+- **Framework**: [Astro](https://astro.build)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com)
+- **UI Components**: [Flowbite](https://flowbite.com)
+- **Icons**: [Astro Icon](https://github.com/natemoo-re/astro-icon)
+- **Language**: TypeScript
 
 ## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+All commands are run from the root of the project:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
@@ -47,8 +71,33 @@ All commands are run from the root of the project, from a terminal:
 | `npm run build`           | Build your production site to `./dist/`          |
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## 📝 Code Quality
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+This project follows clean code principles and best practices:
+
+- **Type Safety**: Full TypeScript support with strict mode enabled
+- **Separation of Concerns**: Clear separation between components, data, and utilities
+- **Reusability**: Modular components and shared constants
+- **Accessibility**: ARIA labels, semantic HTML, and keyboard navigation
+- **Performance**: Optimized images, lazy loading, and minimal JavaScript
+- **Maintainability**: Consistent code style and clear file structure
+
+## 🌐 Internationalization
+
+The site supports multiple languages through a custom i18n implementation:
+
+- English (default)
+- Spanish
+
+Language switching is available through the language picker component.
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+## 👤 Author
+
+**Jair Aya**
+- GitHub: [@jairayafranco](https://github.com/jairayafranco)
+- LinkedIn: [jairaya](https://www.linkedin.com/in/jairaya/)
