@@ -8,7 +8,7 @@ import {
     useTranslations,
     useTranslatedPath,
 } from "../i18n/utils";
-import ProfilePic from "../assets/profile_pic.jpeg";
+import ProfilePic from "../assets/profile_pic.jpg";
 import type { SidebarItem } from "../types";
 
 const lang = getLangFromUrl(Astro.url);
@@ -39,12 +39,12 @@ const isProjectsPage = ["/es/proyectos/", "/projects/"].includes(currentPath);
 
 <!-- Mobile navigation -->
 <nav
-    class="flex gap-3 items-center py-2.5 ml-8 sticky top-0 z-50 bg-[#1d232a] lg:hidden"
+    class="flex gap-3 items-center py-3 ml-8 sticky top-0 z-50 backdrop-blur-xl bg-slate-900/80 border-b border-white/10 lg:hidden"
     aria-label="Mobile navigation"
 >
     <Image
         src={ProfilePic}
-        class="h-12 w-12 rounded-full pointer-events-none"
+        class="h-12 w-12 rounded-full pointer-events-none ring-2 ring-purple-500/50 shadow-lg shadow-purple-500/20"
         alt="Jair Aya profile picture"
         width={48}
         height={48}
@@ -81,11 +81,11 @@ const isProjectsPage = ["/es/proyectos/", "/projects/"].includes(currentPath);
     class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
     aria-label="Main navigation"
 >
-    <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+    <div class="h-full px-3 py-4 overflow-y-auto backdrop-blur-xl bg-slate-900/50 border-r border-white/10">
         <figure class="flex justify-center">
             <Image
                 src={ProfilePic}
-                class="m-3 h-36 w-36 rounded-full pointer-events-none"
+                class="m-3 h-36 w-36 rounded-full pointer-events-none ring-4 ring-purple-500/50 shadow-2xl shadow-purple-500/30 hover:ring-purple-400/70 transition-all duration-300"
                 alt="Jair Aya profile picture"
                 width={144}
                 height={144}
@@ -104,8 +104,8 @@ const isProjectsPage = ["/es/proyectos/", "/projects/"].includes(currentPath);
                                 <a
                                     href={itemPath}
                                     class:list={[
-                                        "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group transition-colors",
-                                        { "bg-gray-100 dark:bg-gray-700": isActive },
+                                        "flex items-center p-3 text-gray-900 rounded-xl dark:text-white hover:bg-gradient-to-r hover:from-purple-500/20 hover:to-blue-500/20 group transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 hover:translate-x-1",
+                                        { "bg-gradient-to-r from-purple-500/30 to-blue-500/30 shadow-lg shadow-purple-500/30": isActive },
                                     ]}
                                     aria-current={isActive ? "page" : undefined}
                                 >

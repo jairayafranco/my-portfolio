@@ -32,28 +32,49 @@ const pageDescription = PROFILE.bio[lang].substring(0, 160);
 		></script>
 		<style is:global>
 			:root {
-				--accent: 136, 58, 234;
-				--accent-light: 224, 204, 250;
-				--accent-dark: 49, 10, 101;
+				--accent: 139, 92, 246;
+				--accent-light: 196, 181, 253;
+				--accent-dark: 91, 33, 182;
 				--accent-gradient: linear-gradient(
-					45deg,
+					135deg,
 					rgb(var(--accent)),
-					rgb(var(--accent-light)) 30%,
-					white 60%
+					rgb(var(--accent-light)) 50%,
+					rgb(139, 92, 246) 100%
 				);
+				--glow: 0 0 20px rgba(139, 92, 246, 0.3);
 			}
 			
 			html {
-				font-family: system-ui, sans-serif;
-				background: #1d232a;
-				color: rgba(255, 255, 255, 0.7);
+				font-family: 'Inter', system-ui, -apple-system, sans-serif;
+				background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+				background-attachment: fixed;
+				color: rgba(255, 255, 255, 0.85);
 				-webkit-font-smoothing: antialiased;
 				-moz-osx-font-smoothing: grayscale;
 				user-select: none;
 			}
 			
+			body {
+				position: relative;
+			}
+			
+			body::before {
+				content: '';
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: 
+					radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+					radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+				pointer-events: none;
+				z-index: 0;
+			}
+			
 			code {
 				font-family:
+					'Fira Code',
 					Menlo,
 					Monaco,
 					'Lucida Console',
@@ -62,6 +83,13 @@ const pageDescription = PROFILE.bio[lang].substring(0, 160);
 					'Bitstream Vera Sans Mono',
 					'Courier New',
 					monospace;
+			}
+			
+			h1, h2, h3, h4, h5, h6 {
+				background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.8) 100%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
 			}
 		</style>
 	</body>

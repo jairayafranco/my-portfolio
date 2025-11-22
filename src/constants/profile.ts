@@ -2,7 +2,7 @@ export const PROFILE = {
   name: 'Jair Aya',
   title: 'Software Developer',
   bio: {
-    en: 'I am a software developer with about 2 years of experience passionate about learning and problem-solving. I specialize in creating innovative and efficient solutions to enhance the user experience. I love working on challenging projects and mastering different subjects. I always seek to learn something new and stay updated on the latest technologies and trends in the world of software development.',
-    es: 'Soy un desarrollador de software con aproximadamente 2 años de experiencia apasionado por el aprendizaje y la resolución de problemas. Me especializo en crear soluciones innovadoras y eficientes para mejorar la experiencia del usuario. Me encanta trabajar en proyectos desafiantes y dominar diferentes temas. Siempre busco aprender algo nuevo y mantenerme actualizado sobre las últimas tecnologías y tendencias en el mundo del desarrollo de software.',
+    en: 'Software developer with 3 years of experience in PHP, JavaScript and MySQL. Experience in creating REST APIs, frontend integration and database management. Ability to work in teams and deliver efficient solutions.',
+    es: 'Desarrollador de software con 3 años de experiencia en PHP, JavaScript y MySQL. Experiencia en creación de APIs REST, integración con frontends y gestión de bases de datos. Capacidad para trabajar en equipo y entregar soluciones eficientes.',
   },
 } as const;
