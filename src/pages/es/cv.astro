@@ -1,69 +1,70 @@
 ---
-import Layout from "../../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
-import { CV } from "../../data/cv";
+import Layout from "../../layouts/Layout.astro";
 import { calculateTotalTime } from "../../utils/calculateTotalTime";
+import { CV } from "../../data/cv";
 import { getLangFromUrl } from "../../i18n/utils";
+import { PROFILE } from "../../constants/profile";
 
-const { experience, education, certificaciones } = CV.es;
-const { skills } = CV.en;
 const lang = getLangFromUrl(Astro.url);
+const cvData = CV[lang];
+const { experience, education, certificaciones } = cvData;
+const { skills } = CV.en;
 ---
 
 <Layout>
     <div class="pb-12 mt-5">
-        <div class="mb-5">
-            <div class="text-3xl w-full font-bold">Perfil</div>
-        </div>
+        <section class="mb-10">
+            <h1 class="text-3xl w-full font-bold mb-5">Perfil</h1>
+            <p class="text-lg">
+                {PROFILE.bio[lang]}
+            </p>
+        </section>
 
-        <div class="mb-10 text-lg">
-            Soy un desarrollador de software con cerca de 2 años de experiencia
-            apasionado por el aprendizaje y la resolución de problemas. Me
-            especializo en la creación de soluciones innovadoras y eficientes
-            para mejorar la experiencia del usuario. Me encanta trabajar en
-            proyectos desafiantes y dominar diferentes temas. Siempre busco
-            aprender algo nuevo y mantenerme actualizado en las últimas
-            tecnologías y tendencias en el mundo del desarrollo de software.
-        </div>
-
-        <div class="mb-5">
-            <div class="text-3xl w-full font-bold">Experiencia</div>
-        </div>
-
-        <div class="time-line-container grid gap-4 mb-10">
+        <section class="mb-10">
+            <h2 class="text-3xl w-full font-bold mb-5">Experiencia</h2>
             <ol
                 class="relative text-gray-500 border-l border-gray-200 dark:border-gray-700 dark:text-gray-400"
+                aria-label="Línea de tiempo de experiencia laboral"
             >
                 {
                     experience.map((exp) => (
                         <li class="mb-10 ml-6">
-                            <span class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-purple-900" />
+                            <span 
+                                class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-purple-900"
+                                aria-hidden="true"
+                            />
                             <h3 class="font-medium leading-tight text-lg">
                                 {exp.name}
                             </h3>
                             <p class="font-light text-sm">
-                                {exp.from} a {exp.to} en {exp.where} -{" "}
-                                {calculateTotalTime(exp.from, exp.to, lang)}
+                                {exp.from} a {exp.to} en {exp.where}
+                                {exp.from && exp.to && (
+                                    <span> - {calculateTotalTime(exp.from, exp.to, lang)}</span>
+                                )}
                             </p>
-                            <p class="my-2 text-justify">{exp.description}</p>
+                            {exp.description && (
+                                <p class="my-2 text-left">{exp.description}</p>
+                            )}
                         </li>
                     ))
                 }
             </ol>
-        </div>
+        </section>
 
-        <div class="mb-5">
-            <div class="text-3xl w-full font-bold">Educación</div>
-        </div>
-
-        <div class="time-line-container grid gap-4 mb-10">
+        <section class="mb-10">
+            <h2 class="text-3xl w-full font-bold mb-5">Educación</h2>
             <ol
                 class="relative text-gray-500 border-l border-gray-200 dark:border-gray-700 dark:text-gray-400"
+                aria-label="Línea de tiempo de educación"
             >
                 {
                     education.map((ed) => (
                         <li class="mb-10 ml-6">
-                            <span class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-purple-900" />
+                            <span 
+                                class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-purple-900"
+                                aria-hidden="true"
+                            />
                             <h3 class="font-medium leading-tight text-lg">
                                 {ed.name}
                             </h3>
@@ -74,34 +75,38 @@ const lang = getLangFromUrl(Astro.url);
                     ))
                 }
             </ol>
-        </div>
+        </section>
 
-        <div class="mb-5">
-            <div class="text-3xl w-full font-bold">Certificaciones</div>
-        </div>
+        {certificaciones && certificaciones.length > 0 && (
+            <section class="mb-10">
+                <h2 class="text-3xl w-full font-bold mb-5">Certificaciones</h2>
+                <ul class="list-disc mx-6 grid gap-2 md:grid-cols-2">
+                    {certificaciones.map((cert) => <li>{cert}</li>)}
+                </ul>
+            </section>
+        )}
 
-        <ul class="list-disc mx-6 mb-10 grid gap-2">
-            {certificaciones.map((cert) => <li>{cert}</li>)}
-        </ul>
-
-        <div class="mb-5">
-            <div class="text-3xl w-full font-bold">Habilidades</div>
-        </div>
-
-        <ul
-            class="list-disc grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-5"
-        >
-            {
-                skills.map((skill) => (
-                    <li class="flex items-center gap-1">
-                        <Icon
-                            name={skill.icon}
-                            class="inline-block w-6 h-6 mr-2"
-                        />
-                        <p>{skill.name}</p>
-                    </li>
-                ))
-            }
-        </ul>
+        {skills && skills.length > 0 && (
+            <section>
+                <h2 class="text-3xl w-full font-bold mb-5">Habilidades</h2>
+                <ul
+                    class="list-none grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5"
+                    aria-label="Habilidades técnicas"
+                >
+                    {
+                        skills.map((skill) => (
+                            <li class="flex items-center gap-2">
+                                <Icon
+                                    name={skill.icon}
+                                    class="inline-block w-6 h-6"
+                                    aria-hidden="true"
+                                />
+                                <span>{skill.name}</span>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </section>
+        )}
     </div>
 </Layout>

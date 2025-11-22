@@ -1,37 +1,29 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { projects } from "../../data/projects";
 import ProjectCard from "../../components/ProjectCard.astro";
+import { projects } from "../../data/projects";
+import { PROFILE } from "../../constants/profile";
+import { getLangFromUrl } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const recentProjects = projects.slice(0, 5);
 ---
 
 <Layout>
     <div class="pb-12 mt-5">
-        <div class="text-xl py-1">Hola 👋</div>
-        <div class="text-5xl font-bold">Soy Jair Aya</div>
-        <div class="text-3xl py-3 font-bold">Desarrollador de Software</div>
-        <div class="py-2">
-            <text class="text-lg">
-                Soy un desarrollador de software con cerca de 2 años de
-                experiencia apasionado por el aprendizaje y la resolución de
-                problemas. Me especializo en la creación de soluciones
-                innovadoras y eficientes para mejorar la experiencia del
-                usuario. Me encanta trabajar en proyectos desafiantes y dominar
-                diferentes temas. Siempre busco aprender algo nuevo y mantenerme
-                actualizado en las últimas tecnologías y tendencias en el mundo
-                del desarrollo de software.
-            </text>
-        </div>
+        <p class="text-xl py-1">Hola 👋</p>
+        <h1 class="text-5xl font-bold">Soy {PROFILE.name}</h1>
+        <h2 class="text-3xl py-3 font-bold">Desarrollador de Software</h2>
+        <p class="py-2 text-lg">
+            {PROFILE.bio[lang]}
+        </p>
 
-        <div class="text-3xl w-full font-bold my-5">Proyectos Recientes</div>
+        <h2 class="text-3xl w-full font-bold my-5">Proyectos Recientes</h2>
 
-        <div class="flex flex-col">
-            {
-                projects
-                    .slice(0, 5)
-                    .map((project, i) => (
-                        <ProjectCard project={project} key={i} />
-                    ))
-            }
+        <div class="flex flex-col gap-4">
+            {recentProjects.map((project) => (
+                <ProjectCard project={project} />
+            ))}
         </div>
     </div>
 </Layout>

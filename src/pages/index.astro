@@ -1,36 +1,29 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { projects } from "../data/projects";
 import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects";
+import { PROFILE } from "../constants/profile";
+import { getLangFromUrl } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const recentProjects = projects.slice(0, 5);
 ---
 
 <Layout>
 	<div class="pb-12 mt-5">
-		<div class="text-xl py-1">Hey there 👋</div>
-		<div class="text-5xl font-bold">I'm Jair Aya</div>
-		<div class="text-3xl py-3 font-bold">Software Developer</div>
-		<div class="py-2">
-			<text class="text-lg">
-				I am a software developer with about 2 years of experience
-				passionate about learning and problem-solving. I specialize in
-				creating innovative and efficient solutions to enhance the user
-				experience. I love working on challenging projects and mastering
-				different subjects. I always seek to learn something new and
-				stay updated on the latest technologies and trends in the world
-				of software development.
-			</text>
-		</div>
+		<p class="text-xl py-1">Hey there 👋</p>
+		<h1 class="text-5xl font-bold">I'm {PROFILE.name}</h1>
+		<h2 class="text-3xl py-3 font-bold">{PROFILE.title}</h2>
+		<p class="py-2 text-lg">
+			{PROFILE.bio[lang]}
+		</p>
 
-		<div class="text-3xl w-full font-bold my-5">Recent Projects</div>
+		<h2 class="text-3xl w-full font-bold my-5">Recent Projects</h2>
 
-		<div class="flex flex-col">
-			{
-				projects
-					.slice(0, 5)
-					.map((project, i) => (
-						<ProjectCard project={project} key={i} />
-					))
-			}
+		<div class="flex flex-col gap-4">
+			{recentProjects.map((project) => (
+				<ProjectCard project={project} />
+			))}
 		</div>
 	</div>
 </Layout>

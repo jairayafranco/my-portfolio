@@ -2,19 +2,23 @@
 import { ViewTransitions } from "astro:transitions";
 import Sidebar from "../components/Sidebar.astro";
 import { getLangFromUrl } from "../i18n/utils";
+import { PROFILE } from "../constants/profile";
 
 const lang = getLangFromUrl(Astro.url);
+const pageTitle = `${PROFILE.name} - Portfolio`;
+const pageDescription = PROFILE.bio[lang].substring(0, 160);
 ---
 
 <!doctype html>
 <html lang={lang} class="dark">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content={pageDescription} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Jair Aya - Portfolio</title>
+		<meta name="author" content={PROFILE.name} />
+		<title>{pageTitle}</title>
 		<ViewTransitions />
 	</head>
 
@@ -38,28 +42,25 @@ const lang = getLangFromUrl(Astro.url);
 					white 60%
 				);
 			}
+			
 			html {
 				font-family: system-ui, sans-serif;
 				background: #1d232a;
-				color: rgb(255, 255, 255, 0.7);
+				color: rgba(255, 255, 255, 0.7);
 				-webkit-font-smoothing: antialiased;
 				-moz-osx-font-smoothing: grayscale;
-				-webkit-user-select: none;
-				-khtml-user-select: none;
-				-moz-user-select: none;
-				-ms-user-select: none;
-				-o-user-select: none;
 				user-select: none;
 			}
+			
 			code {
 				font-family:
 					Menlo,
 					Monaco,
-					Lucida Console,
-					Liberation Mono,
-					DejaVu Sans Mono,
-					Bitstream Vera Sans Mono,
-					Courier New,
+					'Lucida Console',
+					'Liberation Mono',
+					'DejaVu Sans Mono',
+					'Bitstream Vera Sans Mono',
+					'Courier New',
 					monospace;
 			}
 		</style>
