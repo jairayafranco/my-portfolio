@@ -1,6 +1,5 @@
 ---
 import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets";
 import LanguagePicker from "./LanguagePicker.astro";
 import Social from "./Social.astro";
 import {
@@ -77,16 +76,6 @@ const isProjectsPage =
     <div
         class="h-full px-3 py-4 overflow-y-auto backdrop-blur-xl bg-slate-900/50 border-r border-white/10"
     >
-        <figure class="flex justify-center">
-            <!-- <Image
-                src={ProfilePic}
-                class="m-3 h-36 w-36 rounded-full pointer-events-none ring-4 ring-purple-500/50 shadow-2xl shadow-purple-500/30 hover:ring-purple-400/70 transition-all duration-300"
-                alt="Jair Aya profile picture"
-                width={144}
-                height={144}
-            /> -->
-        </figure>
-
         <nav aria-label="Main menu">
             <ul class="space-y-2 font-medium">
                 {
