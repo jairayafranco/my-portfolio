@@ -30,3 +30,27 @@ export function useTranslatedPath(lang: Language) {
       : `/${l}${translatedPath}`;
   };
 }
+
+export function getRouteFromUrl(url: URL): string {
+  const pathname = url.pathname;
+  const currentLang = getLangFromUrl(url);
+
+  if (currentLang === defaultLang) return pathname;
+
+  const langPrefix = `/${currentLang}`;
+  let path = pathname.startsWith(langPrefix) ? pathname.slice(langPrefix.length) : pathname;
+
+  if (!path.startsWith('/')) path = '/' + path;
+
+  const routesForLang = routes[currentLang];
+  if (routesForLang) {
+    const pathNameClean = path.replaceAll('/', '');
+    for (const [key, value] of Object.entries(routesForLang)) {
+      if (value === pathNameClean) {
+        return `/${key}/`;
+      }
+    }
+  }
+
+  return path;
+}
