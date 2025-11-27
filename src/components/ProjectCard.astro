@@ -16,7 +16,7 @@ const imagePath = `/${lang === "es" ? "../../" : "../"}images/projects/${project
 <article
     class="rounded-2xl backdrop-blur-sm bg-slate-800/40 border border-white/10 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/20 transition-all ease-in-out hover:scale-[102%] duration-300 group overflow-hidden flex flex-col"
 >
-    <div class="flex gap-4 p-6 flex-row items-start">
+    <div class="flex items-center md:flex-row gap-4 p-6 flex-col items-start">
         <Image
             alt={`${project.name} screenshot`}
             class="w-48 h-auto rounded-xl shadow-lg group-hover:shadow-2xl group-hover:shadow-purple-500/20 transition-all duration-300 flex-shrink-0"
@@ -36,7 +36,7 @@ const imagePath = `/${lang === "es" ? "../../" : "../"}images/projects/${project
                 </p>
             </div>
 
-            <div class="flex gap-2 flex-wrap mt-4">
+            <div class="flex md:flex gap-2 flex-wrap mt-4">
                 <a
                     href={project.github}
                     target="_blank"

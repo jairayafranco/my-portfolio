@@ -5,6 +5,8 @@ import { projects } from "../data/projects";
 import { PROFILE } from "../constants/profile";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import type { Language } from "../types";
+import Image from "astro/components/Image.astro";
+import ProfilePic from "../assets/profile_pic.jpg";
 
 const lang = getLangFromUrl(Astro.url) as Language;
 const t = useTranslations(lang);
@@ -13,19 +15,41 @@ const recentProjects = projects.slice(0, 5);
 
 <Layout>
 	<div class="pb-12 mt-5 relative z-10">
-		<p class="text-xl py-1 text-purple-400 animate-fade-in">{t('home.greeting')} 👋</p>
-		<h1 class="text-6xl font-bold bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent py-2">{t('home.intro')} {PROFILE.name}</h1>
-		<h2 class="text-3xl py-3 font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">{PROFILE.title[lang]}</h2>
-		<p class="py-2 text-lg text-gray-300 leading-relaxed">
-			{PROFILE.bio[lang]}
-		</p>
+		<div class="flex flex-col md:flex-row gap-4 items-center">
+			<Image
+				src={ProfilePic}
+				class="h-40 w-40 rounded-full pointer-events-none ring-2 ring-purple-500/50 shadow-lg shadow-purple-500/20"
+				alt="Jair Aya profile picture"
+			/>
+			<div>
+				<p class="text-xl py-1 text-purple-400 animate-fade-in">
+					{t("home.greeting")} 👋
+				</p>
+				<h1
+					class="text-6xl font-bold bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent py-2"
+				>
+					{t("home.intro")}
+					{PROFILE.name}
+				</h1>
+				<h2
+					class="text-3xl py-3 font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
+				>
+					{PROFILE.title[lang]}
+				</h2>
+				<p class="py-2 text-lg text-gray-300 leading-relaxed">
+					{PROFILE.bio[lang]}
+				</p>
+			</div>
+		</div>
 
-		<h2 class="text-4xl w-full font-bold my-8 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">{t('home.recentProjects')}</h2>
+		<h2
+			class="text-4xl w-full font-bold my-8 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent"
+		>
+			{t("home.recentProjects")}
+		</h2>
 
 		<div class="flex flex-col gap-4">
-			{recentProjects.map((project) => (
-				<ProjectCard project={project} />
-			))}
+			{recentProjects.map((project) => <ProjectCard project={project} />)}
 		</div>
 	</div>
 </Layout>
